@@ -307,27 +307,81 @@
 // console.log(b);
 
 
-let container = document.getElementById('myDiv');
-let imgTag = document.createElement("img");
-imgTag.src = "https://images.unsplash.com/photo-1541690161184-75cbc0386cd6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80";
-imgTag.className = "img-width";
 
-// imgTag.style.width = "120";
-// imgTag.style.width = "150px";
-container.appendChild(imgTag);
+// let container = document.getElementById('myDiv');
+// let imgTag = document.createElement("img");
+// imgTag.src = "https://images.unsplash.com/photo-1541690161184-75cbc0386cd6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80";
+// imgTag.className = "img-width";
 
-
-let header = document.createElement("h3");
-// let headerText = document.createTextNode("Історія про степлер");
-// // header.appendChild(headerText);                                             альтернатива
-header.innerText = "Історія про степлер";
-container.appendChild(header);
+// // imgTag.style.width = "120";
+// // imgTag.style.width = "150px";
+// container.appendChild(imgTag);
 
 
-let article = document.createElement("p");
-article.innerText = "Progressively create real-time initiatives whereas wireless alignments. Phosfluorescently aggregate best-of-breed process improvements through focused strategic theme areas. Proactively whiteboard value-added content after multimedia based niche markets. Uniquely e-enable customer directed web services whereas backend systems. Assertively grow client-centered paradigms before technically sound sources.\n" +
-    "\n" +
-    "Proactively fabricate future-proof alignments via distinctive vortals. Assertively productize exceptional \"outside the box\" thinking after highly efficient benefits. Compellingly incubate cross-media alignments and premier solutions. Credibly generate customer directed communities vis-a-vis alternative catalysts for change. Proactively supply turnkey methods of empowerment vis-a-vis granular markets.\n" +
-    "\n" +
-    "Dynamically expedite turnkey synergy before dynamic catalysts for change. Assertively scale team building relationships and distinctive services. Credibly strategize standardized deliverables and web-enabled growth strategies. Professionally empower cutting-edge action items with team building technologies. Synergistically incubate intuitive.";
-container.appendChild(article);
+// let header = document.createElement("h3");
+// // let headerText = document.createTextNode("Історія про степлер");
+// // // header.appendChild(headerText);                                             альтернатива
+// header.innerText = "Історія про степлер";
+// container.appendChild(header);
+
+// let article = document.createElement("p");
+// article.innerText = "Progressively create real-time initiatives whereas wireless alignments. Phosfluorescently aggregate best-of-breed process improvements through focused strategic theme areas. Proactively whiteboard value-added content after multimedia based niche markets. Uniquely e-enable customer directed web services whereas backend systems. Assertively grow client-centered paradigms before technically sound sources.\n" +
+//     "\n" +
+//     "Proactively fabricate future-proof alignments via distinctive vortals. Assertively productize exceptional \"outside the box\" thinking after highly efficient benefits. Compellingly incubate cross-media alignments and premier solutions. Credibly generate customer directed communities vis-a-vis alternative catalysts for change. Proactively supply turnkey methods of empowerment vis-a-vis granular markets.\n" +
+//     "\n" +
+//     "Dynamically expedite turnkey synergy before dynamic catalysts for change. Assertively scale team building relationships and distinctive services. Credibly strategize standardized deliverables and web-enabled growth strategies. Professionally empower cutting-edge action items with team building technologies. Synergistically incubate intuitive.";
+// container.appendChild(article);
+
+let allArticles = [{
+        id: 0,
+        title: "Історія про степлер",
+        imgSrc: "https://images.unsplash.com/photo-1541690161184-75cbc0386cd6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        article: "Progressively create real-time initiatives whereas wireless alignments. Phosfluorescently aggregate best-of-breed process improvements through focused strategic theme areas. Proactively whiteboard value-added content after multimedia based niche markets. Uniquely e-enable customer directed web services whereas backend systems. Assertively grow client-centered paradigms before technically sound sources.\n" +
+            "\n" +
+            "Proactively fabricate future-proof alignments via distinctive vortals. Assertively productize exceptional \"outside the box\" thinking after highly efficient benefits. Compellingly incubate cross-media alignments and premier solutions. Credibly generate customer directed communities vis-a-vis alternative catalysts for change. Proactively supply turnkey methods of empowerment vis-a-vis granular markets.\n" +
+            "\n" +
+            "Dynamically expedite turnkey synergy before dynamic catalysts for change. Assertively scale team building relationships and distinctive services. Credibly strategize standardized deliverables and web-enabled growth strategies. Professionally empower cutting-edge action items with team building technologies. Synergistically incubate intuitive."
+
+    },
+    {
+        id: 1,
+        title: "Історія про ручку",
+        imgSrc: "https://images.unsplash.com/photo-1518674660708-0e2c0473e68e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2048&q=80",
+        article: " And feel free to write me, if you need higher resolution image."
+    },
+    {
+        id: 2,
+        title: "Історія про лампу",
+        imgSrc: "https://images.unsplash.com/photo-1566642142368-2578ffba198a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1234&q=80",
+        article: "Severodvinsk, Russia"
+    }
+];
+
+for (let i = 0; i < allArticles.length; i++) {
+
+    let articleContainer = document.createElement("div");
+    articleContainer.className = "articleCont";
+
+    let articleImg = document.createElement("img");
+    articleImg.src = allArticles[i].imgSrc;
+    articleImg.className = "img-w";
+
+    let articleTitle = document.createElement("h3");
+    articleTitle.innerText = allArticles[i].title;
+
+    let article = document.createElement("p");
+    article.innerText = allArticles[i].article;
+    article.className = "articleText";
+
+    let textContainer = document.createElement("div");
+    textContainer.className = "textWrapper";
+    textContainer.appendChild(articleTitle);
+    textContainer.appendChild(article);
+
+    articleContainer.appendChild(articleImg);
+    articleContainer.appendChild(textContainer);
+
+
+    let articlesCont = document.getElementById("myDiv");
+    articlesCont.appendChild(articleContainer);
+}

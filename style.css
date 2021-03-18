@@ -1,4 +1,20 @@
-.img-width {
-    width: 150px;
-    border: 2px solid black;
+.img-w {
+    width: 36vw;
+    height: 30vh;
+}
+
+.articleCont {
+    margin: 30px 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.articleText {
+    max-width: 50vw;
+}
+
+.textWrapper {
+    display: flex;
+    flex-direction: column;
 }
